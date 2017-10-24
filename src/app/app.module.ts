@@ -2,13 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { DataEntryComponent } from './components/data-entry/data-entry.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DataEntryComponent,
+    FooterComponent 
   ],
   imports: [
-    BrowserModule
+    BrowserModule    
   ],
   providers: [],
   bootstrap: [AppComponent]
