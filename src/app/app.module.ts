@@ -1,20 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule }          from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { DataEntryComponent } from './components/data-entry/data-entry.component';
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
+import { DynamicFormFieldComponent } from './components/dynamic-form-field/dynamic-form-field.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { DataEntryFieldComponent } from './components/data-entry-field/data-entry-field.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DataEntryComponent,
+    DynamicFormComponent,
     FooterComponent,
-    DataEntryFieldComponent 
+    DynamicFormFieldComponent 
   ],
   imports: [
-    BrowserModule    
+    BrowserModule, ReactiveFormsModule   
   ],
   providers: [],
   bootstrap: [AppComponent]
