@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/forms';
 
 import { FieldBase } from '../models/fields/field-base'
 
@@ -11,9 +11,19 @@ export class DynamicFormService {
   toFormGroup(fields: FieldBase<any>[] ) {
     let group: any = {};
 
-    fields.forEach(field => {
-      group[field.key] = field.required ? new FormControl(field.value || '', Validators.required)
-                                              : new FormControl(field.value || '');
+    fields.forEach(field => {      
+      let validators = [];
+      if (field.required) {
+        validators.push(Validators.required);
+      }
+
+      if (field.type == "email") {
+        validators.push(Validators.email);
+      }
+       
+      validators.push()
+      group[field.key] = new FormControl(field.value || '', validators)                         
+      
     });
     return new FormGroup(group);
   }

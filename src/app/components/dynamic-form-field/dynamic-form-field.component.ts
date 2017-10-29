@@ -21,7 +21,7 @@ const kbOptions: KeyboardOptions = {
   },
   acceptValid: true,
   type: "input",
-  layout       : 'num', 
+  layout       : 'qwerty', 
   lockInput: true,
   alwaysOpen: true,
   appendLocally: true,
@@ -43,10 +43,17 @@ export class DynamicFormFieldComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit() {
-    $('input').keyboard(kbOptions);
+    //$('input').keyboard(kbOptions);
   }
 
   @Input() field: FieldBase<any>;
   @Input() form: FormGroup;
   get isValid() { return this.form.controls[this.field.key].valid; }
+  get errorMessage() { 
+    let errors = this.form.controls[this.field.key].errors;
+    if (errors['email']) return 'Invalid email';
+    else if(errors['required']) return this.field.label + " is required";
+
+    return "";
+  }
 }

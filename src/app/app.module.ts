@@ -2,12 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule }          from '@angular/forms';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
+import {MatFormFieldModule, MatInputModule, MatSelectModule, MatStepperModule, MatTabsModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { DynamicFormFieldComponent } from './components/dynamic-form-field/dynamic-form-field.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { StepperFormComponent } from './components/stepper-form/stepper-form.component';
+import { TabFormComponent } from './components/tab-form/tab-form.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { FooterComponent } from './components/footer/footer.component';
     AppComponent,
     DynamicFormComponent,
     FooterComponent,
-    DynamicFormFieldComponent 
+    DynamicFormFieldComponent,
+    StepperFormComponent,
+    TabFormComponent 
   ],
   imports: [
     BrowserModule, 
@@ -23,7 +27,9 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserAnimationsModule, 
     MatFormFieldModule, 
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatStepperModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,9 +12,10 @@ export class FieldService {
 
       new FieldTextbox({
         key: 'emailAddress',
-        label: 'email',
+        label: 'Email',
         type: 'email',
-        order: 1
+        order: 1,
+        required: true
       }),
 
       new FieldTextbox({

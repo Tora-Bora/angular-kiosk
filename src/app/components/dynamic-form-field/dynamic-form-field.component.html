@@ -3,16 +3,13 @@
   <div [ngSwitch]="field.controlType">
 
     <mat-form-field>
-      <input matInput *ngSwitchCase="'textbox'" [formControlName]="field.key"
-              [id]="field.key" [type]="field.type" placeholder="{{field.label}}">
-      
-
+      <input matInput *ngSwitchCase="'textbox'" [formControlName]="field.key" [id]="field.key" [type]="field.type" [(ngModel)]="field.value" placeholder="{{field.label}}">          
       <mat-select [id]="field.key" *ngSwitchCase="'dropdown'" [formControlName]="field.key">
         <mat-option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</mat-option>
-      </mat-select>
+      </mat-select>      
+      <mat-error *ngIf="!isValid">{{errorMessage}}</mat-error>     
     </mat-form-field>
 
   </div> 
-
-  <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div>
+  
 </div>
