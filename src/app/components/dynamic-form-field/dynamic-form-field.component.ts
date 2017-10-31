@@ -8,29 +8,14 @@ import "virtual-keyboard";
 
 import { FieldBase } from '../../models/fields/field-base';
 
-const kbOptions: KeyboardOptions = {
-  display: {
-      bksp: "\u2190",
-      accept: `Next`,
-      cancel: `Back`,
-      normal: "ABC",
-      meta1: "#+-",
-      space: "Space",
-      alt: `Alt`,
-      s: `ABC`,
-  },
-  acceptValid: true,
+const kbOptions: KeyboardOptions = {  
   type: "input",
-  layout       : 'qwerty', 
-  lockInput: true,
-  alwaysOpen: true,
-  appendLocally: true,
-  color: "light",
-  class: "sxcycx",
+  layout : 'qwerty',
+  alwaysOpen : true,  
+  lockInput: true,  
+  appendLocally: false,
   updateOnChange: true,
-  usePreview: false,
-  tabNavigation: false,
-  canceled: () => { console.log("cancelled"); }
+  usePreview: false    
 };
 
 @Component({
@@ -43,7 +28,7 @@ export class DynamicFormFieldComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit() {
-    //$('input').keyboard(kbOptions);
+    $('#keyboard').keyboard(kbOptions);
   }
 
   @Input() field: FieldBase<any>;
