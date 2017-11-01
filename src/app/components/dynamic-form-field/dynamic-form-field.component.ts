@@ -28,8 +28,10 @@ export class DynamicFormFieldComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit() {
-    $('#keyboard').keyboard(kbOptions);
+    //$('#keyboard').keyboard(kbOptions);
+    console.log(`ngAfterViewInit ${this.field.key}`);
   }
+
 
   @Input() field: FieldBase<any>;
   @Input() form: FormGroup;

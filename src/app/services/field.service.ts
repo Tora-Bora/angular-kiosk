@@ -23,7 +23,9 @@ export class FieldService {
         label: 'Номер телефона',
         type: 'tel',
         order: 2
-      }),
+      })
+      
+      ,
 
       new FieldDropdown({
         key: 'document',

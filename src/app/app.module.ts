@@ -11,6 +11,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { StepperFormComponent } from './components/stepper-form/stepper-form.component';
 import { TabFormComponent } from './components/tab-form/tab-form.component';
 
+import { NgxVirtualKeyboardModule } from '../ngx_virtual_keyboard'
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { TabFormComponent } from './components/tab-form/tab-form.component';
     MatInputModule,
     MatSelectModule,
     MatStepperModule,
-    MatTabsModule
+    MatTabsModule,
+    NgxVirtualKeyboardModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

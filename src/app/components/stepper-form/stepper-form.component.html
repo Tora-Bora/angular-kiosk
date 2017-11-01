@@ -2,16 +2,8 @@
   <form [formGroup]="form">
       <mat-horizontal-stepper (selectionChange)="doSomething($event)">
           <mat-step *ngFor="let field of fields" label="{{field.label}}" [stepControl]="form.controls[field.key]">           
-              <div [ngSwitch]="field.controlType">                                                    
-                <mat-form-field>                      
-                  <input matInput *ngSwitchCase="'textbox'" [formControlName]="field.key" [id]="field.key" [type]="field.type" placeholder="{{field.label}}" required>                                                        
-                  <mat-select [id]="field.key" *ngSwitchCase="'dropdown'" [formControlName]="field.key">
-                    <mat-option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</mat-option>
-                  </mat-select>
-                </mat-form-field>                
-              </div>             
+            <df-field [field]="field" [form]="form"></df-field>            
           </mat-step>       
       </mat-horizontal-stepper>
-  </form> 
-  <div>Form status: {{status}}</div> 
+  </form>   
 </div>

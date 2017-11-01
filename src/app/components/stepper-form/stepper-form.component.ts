@@ -29,7 +29,7 @@ export class StepperFormComponent implements OnInit, AfterViewInit {
 
 
   ngAfterViewInit() {
-    $('input').keyboard(kbOptions);
+    //$('input').keyboard(kbOptions);
   }  
 
   doSomething(event) {
