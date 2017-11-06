@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 
 import { NavFooterComponent } from '../nav-footer/nav-footer.component'
 import { FieldBase } from '../../services/fields/field-base'
-import { DynamicFormService } from '../../services/dynamic-form.service';
+import { DynamicFieldService } from '../../services/dynamic-field.service'
 
 import {MatStepper} from '@angular/material';
 
@@ -12,7 +12,7 @@ import {MatStepper} from '@angular/material';
   selector: 'stepper-form',
   templateUrl: './stepper-form.component.html',
   styleUrls: ['./stepper-form.component.css'],
-  providers: [DynamicFormService],
+  providers: [DynamicFieldService],
   encapsulation: ViewEncapsulation.None
 })
 export class StepperFormComponent implements OnInit, AfterViewInit {
@@ -22,7 +22,7 @@ export class StepperFormComponent implements OnInit, AfterViewInit {
   form: FormGroup;
   payLoad = '';
   
-  constructor(private qcs: DynamicFormService) { }
+  constructor(private qcs: DynamicFieldService) { }
 
   ngOnInit() {
     this.form = this.qcs.toFormGroup(this.fields);    

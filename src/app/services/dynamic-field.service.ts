@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/for
 import { FieldBase } from './fields/field-base'
 
 @Injectable()
-export class DynamicFormService {
+export class DynamicFieldService {
 
   constructor() { }
 
