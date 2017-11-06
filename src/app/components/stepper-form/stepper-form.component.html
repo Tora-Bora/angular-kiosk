@@ -6,6 +6,6 @@
           </mat-step>                           
       </mat-horizontal-stepper>
   </form>   
-  <nav-footer (forward)="stepper.next()" (backward)="stepper.previous()" [forwardEnabled]="forwardEnabled" [backwardEnabled]="backwardEnabled"></nav-footer>  
+  <nav-footer (forward)="forward()" (backward)="backward()" [forwardEnabled]="forwardEnabled" [backwardEnabled]="backwardEnabled"></nav-footer>  
 </div>
 

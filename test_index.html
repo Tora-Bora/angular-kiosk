@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TestApp</title>
+
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="node_modules/virtual-keyboard/dist/js/jquery.keyboard.js"></script>
+  <script type="text/javascript" src="node_modules/virtual-keyboard/dist/js/jquery.keyboard.extension-extender.min.js"></script>
+  <link href="node_modules/virtual-keyboard/dist/css/keyboard.min.css" type="text/css" rel="stylesheet"/>  
+  <link href="node_modules/jquery-ui-dist/jquery-ui.css" type="text/css" rel="stylesheet"/>  
+  
+  <style>
+  
+  
+	.ui-keyboard {
+		bottom: 180px;
+		width: 100%;
+		top: auto;
+	}
+	
+	.ui-body .ui-keyboard-button {
+		width: 4em;
+		height: 4em;
+		display: inline-block;
+	}
+	.ui-body .ui-keyboard-widekey {
+		width: 11em;
+	}
+	.ui-body .ui-keyboard-space {
+		width: 30em;
+	}
+	
+	.ui-keyboard div {
+		font-size: 2.2em;
+	}
+
+  
+  </style>
+  
+  <script type="text/javascript">
+	jQuery(document).ready(function()
+    {       	
+	
+		$('#numpad').keyboard({ 
+			type: "input",
+			layout : 'numpad',
+			usePreview: false,
+			autoAccept: true});
+			
+			
+		$('#querty').keyboard({ 
+			type: "input",
+			layout : 'qwerty',
+			usePreview: false,
+			autoAccept: true});
+      
+      //showPaymentPage();    
+        //    $.getJSON(ajaxUrl + 'ajax/gorod/abonents.js', showServices)
+    });
+  </script>
+  
+</head>
+<body>
+  <div>
+	<input id="numpad" type="text" size="40"/>
+	<input id="querty" type="text" size="40"/>
+  </div>
+</body>
+</html>

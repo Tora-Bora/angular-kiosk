@@ -1,9 +1,11 @@
-import { Component, OnInit, AfterViewInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, ViewEncapsulation, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { NavFooterComponent } from '../nav-footer/nav-footer.component'
 import { FieldBase } from '../../services/fields/field-base'
 import { DynamicFormService } from '../../services/dynamic-form.service';
+
+import {MatStepper} from '@angular/material';
 
 
 @Component({
@@ -15,6 +17,7 @@ import { DynamicFormService } from '../../services/dynamic-form.service';
 })
 export class StepperFormComponent implements OnInit, AfterViewInit {
   @Input() fields : FieldBase<any>[] = [];
+  @ViewChild('stepper') stepper: MatStepper;
 
   form: FormGroup;
   payLoad = '';
@@ -37,11 +40,24 @@ export class StepperFormComponent implements OnInit, AfterViewInit {
   }
 
   get forwardEnabled() {
-    return true;
+    if (this.stepper.selectedIndex + 1 >= this.fields.length) {
+      return this.form.valid;
+    }
+  
+    return true;     
   }
 
   get backwardEnabled() {
-    return true;
+    return this.stepper.selectedIndex != 0;
+  }
+
+  forward() {
+    this.stepper.next();
+    
+  }
+
+  backward() {
+    this.stepper.previous();
   }
 
 }
