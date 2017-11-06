@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { KeyboardOptions, NavigateOptions } from "virtual-keyboard";
 
-import { FieldBase } from '../../models/fields/field-base'
+import { FieldBase } from '../../services/fields/field-base'
 import { DynamicFormService } from '../../services/dynamic-form.service';
 
 import * as $ from "jquery"; 

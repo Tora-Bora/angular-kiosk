@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/forms';
 
-import { FieldBase } from '../models/fields/field-base'
+import { FieldBase } from './fields/field-base'
 
 @Injectable()
 export class DynamicFormService {

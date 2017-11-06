@@ -24,11 +24,15 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "@types/jquery": "^3.2.15",
+    "@types/jqueryui": "^1.11.37",
     "@types/virtual-keyboard": "^1.26.0",
     "core-js": "^2.4.1",
     "jquery": "^3.2.1",
+    "jquery-ui": "^1.12.1",
+    "jquery-ui-dist": "^1.12.1",
     "ngx-virtual-keyboard": "^1.0.55",
     "rxjs": "^5.4.2",
+    "virtual-keyboard": "^1.27.1-beta",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

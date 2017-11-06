@@ -6,22 +6,22 @@ import {MatFormFieldModule, MatInputModule, MatSelectModule, MatStepperModule, M
 
 import { AppComponent } from './app.component';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
-import { DynamicFormFieldComponent } from './components/dynamic-form-field/dynamic-form-field.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { DynamicFieldComponent } from './components/dynamic-field/dynamic-field.component';
+import { NavFooterComponent } from './components/nav-footer/nav-footer.component';
 import { StepperFormComponent } from './components/stepper-form/stepper-form.component';
 import { TabFormComponent } from './components/tab-form/tab-form.component';
-
-import { NgxVirtualKeyboardModule } from '../ngx_virtual_keyboard'
+import { KeyboardDirective } from './directives/keyboard.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DynamicFormComponent,
-    FooterComponent,
-    DynamicFormFieldComponent,
+    NavFooterComponent,
+    DynamicFieldComponent,
     StepperFormComponent,
-    TabFormComponent 
+    TabFormComponent,
+    KeyboardDirective 
   ],
   imports: [
     BrowserModule, 
@@ -31,8 +31,7 @@ import { NgxVirtualKeyboardModule } from '../ngx_virtual_keyboard'
     MatInputModule,
     MatSelectModule,
     MatStepperModule,
-    MatTabsModule,
-    NgxVirtualKeyboardModule 
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

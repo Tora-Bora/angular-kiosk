@@ -1,4 +1,7 @@
-#keyboard-wrapper {    
-    margin: 30px auto;
-    height: 300px;
-  }
+.mat-step-icon,
+.mat-step-icon-not-touched {
+    height: 36px !important;
+    width: 36px !important;
+}
+
+

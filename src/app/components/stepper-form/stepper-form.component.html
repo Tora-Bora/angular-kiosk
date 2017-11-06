@@ -1,9 +1,11 @@
 <div id="keyboard-wrapper">
   <form [formGroup]="form">
-      <mat-horizontal-stepper (selectionChange)="doSomething($event)">
+      <mat-horizontal-stepper #stepper (selectionChange)="onSelectionChange($event)">
           <mat-step *ngFor="let field of fields" label="{{field.label}}" [stepControl]="form.controls[field.key]">           
-            <df-field [field]="field" [form]="form"></df-field>            
-          </mat-step>       
+            <df-field [field]="field" [form]="form"></df-field>                                   
+          </mat-step>                           
       </mat-horizontal-stepper>
   </form>   
+  <nav-footer (forward)="stepper.next()" (backward)="stepper.previous()" [forwardEnabled]="forwardEnabled" [backwardEnabled]="backwardEnabled"></nav-footer>  
 </div>
+

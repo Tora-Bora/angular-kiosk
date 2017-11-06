@@ -2,8 +2,17 @@
 
   <div [ngSwitch]="field.controlType">
 
-    <mat-form-field>
-      <input matInput *ngSwitchCase="'textbox'" [formControlName]="field.key" [id]="field.key" [type]="field.type" [(ngModel)]="field.value" placeholder="{{field.label}}">          
+    <mat-form-field [hintLabel]="field.hintLabel">
+      <input matInput *ngSwitchCase="'textbox'" 
+        [formControlName]="field.key" 
+        [id]="field.key" 
+        [type]="field.type" 
+        [(ngModel)]="field.value"        
+         placeholder="{{field.label}}"                   
+         keyboard
+         [keyboardLayout]="field.keyboardLayout"
+         >          
+
       <mat-select [id]="field.key" *ngSwitchCase="'dropdown'" [formControlName]="field.key">
         <mat-option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</mat-option>
       </mat-select>      
