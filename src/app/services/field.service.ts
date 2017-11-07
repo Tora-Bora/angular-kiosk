@@ -17,7 +17,7 @@ export class FieldService {
         order: 1,
         required: true,
         hintLabel: "Введите ваш email",
-        keyboardLayout: "qwerty"
+        keyboardLayout: "international"
       }),
 
       new FieldTextbox({

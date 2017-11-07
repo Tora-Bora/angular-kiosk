@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, AfterViewInit } from '@angular/core';
+import { Directive, ElementRef, Input, AfterViewInit, HostListener } from '@angular/core';
 import { KeyboardOptions, NavigateOptions } from "virtual-keyboard";
 
 import * as $ from "jquery"; 
@@ -11,7 +11,7 @@ export class KeyboardDirective implements AfterViewInit {
 
   constructor(private el: ElementRef) { }
 
-  @Input('keyboardLayout') layout: string;
+  @Input('keyboardLayout') layout: string;  
 
   ngAfterViewInit() {    
     $(this.el.nativeElement).keyboard({  
@@ -19,7 +19,19 @@ export class KeyboardDirective implements AfterViewInit {
       layout : this.layout,
       usePreview: false,
       autoAccept: true  
-    });
-  } 
+    });  
+
+    
+        
+    $(this.el.nativeElement).on('keyboardChange', function(){                
+      $(this).trigger('change');
+    });    
+  }
+
+  @HostListener('change') 
+  onChange() {
+    console.log('change');
+    
+  }  
 }
 

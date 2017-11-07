@@ -3,26 +3,22 @@ import { FormGroup } from '@angular/forms';
 
 
 import { FieldBase } from '../../services/fields/field-base';
+import { FieldErrorMessageService } from '../../services/field-error-message.service'
 
 
 @Component({
   selector: 'df-field',
   templateUrl: './dynamic-field.component.html',
-  styleUrls: ['./dynamic-field.component.css']
+  styleUrls: ['./dynamic-field.component.css'],
+  providers: [FieldErrorMessageService],
 })
 export class DynamicFieldComponent {
 
-  constructor() { }
-
-
+  constructor(private ems: FieldErrorMessageService) { }
   @Input() field: FieldBase<any>;
   @Input() form: FormGroup;
   get isValid() { return this.form.controls[this.field.key].valid; }
   get errorMessage() { 
-    let errors = this.form.controls[this.field.key].errors;
-    if (errors['email']) return 'Invalid email';
-    else if(errors['required']) return this.field.label + " is required";
-
-    return "";
+    return this.ems.errorMessage(this.form.controls[this.field.key].errors, this.field.label);   
   }
 }
