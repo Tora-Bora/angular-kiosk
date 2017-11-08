@@ -15,10 +15,13 @@ import { FieldErrorMessageService } from '../../services/field-error-message.ser
 export class DynamicFieldComponent {
 
   constructor(private ems: FieldErrorMessageService) { }
+
   @Input() field: FieldBase<any>;
   @Input() form: FormGroup;
   get isValid() { return this.form.controls[this.field.key].valid; }
   get errorMessage() { 
-    return this.ems.errorMessage(this.form.controls[this.field.key].errors, this.field.label);   
+    if (this.form.controls[this.field.key].errors)
+      return this.ems.errorMessage(this.form.controls[this.field.key].errors, this.field.label);   
+    else return "";
   }
 }

@@ -1,24 +1,19 @@
-<div [formGroup]="form">
-
-  <div [ngSwitch]="field.controlType">
-
-    <mat-form-field [hintLabel]="field.hintLabel">
-      <input matInput *ngSwitchCase="'textbox'" 
+<div [ngSwitch]="field.controlType" [formGroup]="form">
+  <mat-form-field [hintLabel]="field.hintLabel" *ngSwitchCase="'textbox'">
+      <input matInput 
         [formControlName]="field.key" 
         [id]="field.key" 
+        [name]="field.key"
         [type]="field.type" 
         [(ngModel)]="field.value"        
-         placeholder="{{field.label}}"          
-         keyboard
-         [keyboardLayout]="field.keyboardLayout"         
-         >          
-
-      <mat-select [id]="field.key" *ngSwitchCase="'dropdown'" [formControlName]="field.key">
-        <mat-option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</mat-option>
-      </mat-select>      
+          placeholder="{{field.label}}"          
+          keyboard
+          [keyboardLayout]="field.keyboardLayout"         
+          >                
       <mat-error *ngIf="!isValid">{{errorMessage}}</mat-error>           
-    </mat-form-field>
+  </mat-form-field>
 
-  </div> 
-  
-</div>
+  <mat-select [id]="field.key" *ngSwitchCase="'dropdown'" [formControlName]="field.key">
+    <mat-option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</mat-option>
+  </mat-select> 
+</div>                           

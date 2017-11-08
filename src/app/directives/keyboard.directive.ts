@@ -13,6 +13,7 @@ export class KeyboardDirective implements AfterViewInit {
 
   @Input('keyboardLayout') layout: string;  
 
+
   ngAfterViewInit() {    
     $(this.el.nativeElement).keyboard({  
       type: "input",
@@ -21,10 +22,9 @@ export class KeyboardDirective implements AfterViewInit {
       autoAccept: true  
     });  
 
-    
-        
-    $(this.el.nativeElement).on('keyboardChange', function(){                
-      $(this).trigger('change');
+           
+    $(this.el.nativeElement).on('keyboardChange', function(e, key, el){                
+      el.dispatchEvent(new Event("input", { bubbles: true }));
     });    
   }
 

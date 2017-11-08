@@ -43,7 +43,6 @@ export class StepperFormComponent implements OnInit, AfterViewInit {
     if (this.stepper.selectedIndex + 1 >= this.fields.length) {
       return this.form.valid;
     }
-  
     return true;     
   }
 
