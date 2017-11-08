@@ -13,7 +13,10 @@
       <mat-error *ngIf="!isValid">{{errorMessage}}</mat-error>           
   </mat-form-field>
 
-  <mat-select [id]="field.key" *ngSwitchCase="'dropdown'" [formControlName]="field.key">
-    <mat-option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</mat-option>
-  </mat-select> 
+  <mat-form-field *ngSwitchCase="'dropdown'" [hintLabel]="field.hintLabel">
+    <mat-select [id]="field.key" [formControlName]="field.key">
+     <mat-option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</mat-option>
+    </mat-select> 
+  </mat-form-field>  
 </div>                           
+

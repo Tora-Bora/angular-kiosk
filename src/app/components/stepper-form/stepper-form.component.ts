@@ -36,7 +36,7 @@ export class StepperFormComponent implements OnInit, AfterViewInit {
     let sel = '#'+this.fields[event.selectedIndex].key;    
     setTimeout(function() {
       $(sel).focus();
-    },500);        
+    },250);        
   }
 
   get forwardEnabled() {
@@ -55,7 +55,7 @@ export class StepperFormComponent implements OnInit, AfterViewInit {
     
   }
 
-  backward() {
+  backward() {        
     this.stepper.previous();
   }
 
